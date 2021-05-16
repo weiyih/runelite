@@ -248,11 +248,7 @@ public class LootTrackerPlugin extends Plugin
 	private static final int TEMPOROSS_REGION = 12588;
 
 	// Camdozaal Vault lockbox
-	private static final Map<Integer, String> LOCKBOX_IDS = new ImmutableMap.Builder<Integer, String>().
-		put(ItemID.SIMPLE_LOCKBOX_25647, "Simple lockbox").
-		put(ItemID.ELABORATE_LOCKBOX_25649, "Elaborate lockbox").
-		put(ItemID.ORNATE_LOCKBOX_25651, "Ornate lockbox").
-		build();
+	private static final Set<Integer> LOCKBOX_IDS = ImmutableSet.of( ItemID.SIMPLE_LOCKBOX_25647, ItemID.ELABORATE_LOCKBOX_25649, ItemID.ORNATE_LOCKBOX_25651);
 
 	private static final Set<Character> VOWELS = ImmutableSet.of('a', 'e', 'i', 'o', 'u');
 
@@ -863,9 +859,9 @@ public class LootTrackerPlugin extends Plugin
 			takeInventorySnapshot();
 		}
 
-		if (event.getMenuOption().equals("Open") && LOCKBOX_IDS.containsKey(event.getId()))
+		if (event.getMenuOption().equals("Open") && LOCKBOX_IDS.contains(event.getId()))
 		{
-			setEvent(LootRecordType.EVENT, LOCKBOX_IDS.get(event.getId()));
+			setEvent(LootRecordType.EVENT, event.getMenuTarget());
 			takeInventorySnapshot();
 		}
 	}
