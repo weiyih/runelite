@@ -260,4 +260,10 @@ public final class AnimationID
 
 	// POH Animations
 	public static final int INCENSE_BURNER = 3687;
+
+	// Rooftop Agility
+	public static final int FALL_TIGHTROPE = 764;
+	public static final int FALL_GAP = 3061;
+	public static final int FALL_KNEEL = 1332;
+	public static final int FALL_FLAIL = 1123;
 }
